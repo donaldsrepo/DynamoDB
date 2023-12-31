@@ -29,7 +29,7 @@ with open('test.jpg', 'rb') as data:
 print('Postload bucket list and contents:')
 response = s3_client.list_buckets()
 for bucket in response['Buckets']:
-    print(f"Finding item in bucket: {bucket["Name"]}")
+    print(f"Finding items in bucket: {bucket["Name"]}")
     response = s3_client.list_objects_v2(Bucket=bucket["Name"])
     for content in response.get('Contents', []):
         print(f"items in bucket: {content['Key']}")
